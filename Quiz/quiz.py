@@ -10,7 +10,7 @@ def mostrar_menu(): #Menu
     print("3 - Encerrar Programa")
 
 def mostrar_regras(): #Regras
-    os.system("cls")
+    os.system("cls") #Limpa a tela
     print("Regras do Jogo")
     print("==============")
     print("1- Selecione apenas uma resposta (Como: A, B, C, D ou E)")
@@ -18,6 +18,7 @@ def mostrar_regras(): #Regras
     input("Pressione Enter para voltar")
 
 def jogo(): #Quiz
+    pontos = 0 #Variável para inicializar os pontos do usuário, assim toda vez que iniciar o jogo os pontos começam em 0
     for i in range(1, 20):
         nuquest = sortear_questoes()
         quest = perguntas(nuquest)
@@ -25,12 +26,13 @@ def jogo(): #Quiz
         respostauser = input("Escolha uma opção: ").lower().strip()#deixa minuscula e sem espaço
         if correta == respostauser: #verifica caso a resposta do usuário for correta
             print("Você acertou! +0,5 pontos")
+            pontos = pontos + 0.5 #Sistema para adicionar pontos ao usuario
         else:
-            print("Resposta incorreta, a resposta correta era - ", correta.upper())
+            print("Resposta incorreta, a resposta correta era - ", correta.upper()) #upper() deixa maiuscula
         input("Pressione Enter para continuar")
 
 def sair():
-    os.system("cls")
+    os.system("cls") #Limpa a tela
     print("Obrigado por jogar!")
     print("Volte sempre!")
     exit() #Fecha o programa
@@ -39,7 +41,7 @@ def sair():
 lista=[] #Lista para armazenar os números já usados
 def sortear_questoes():
     questao = random.randint(0, 5) #Gera um número aleatório para a pergunta
-    while questao in lista:
+    while questao in lista: #Enquanto a questão estiver na lista, gera outro número, para assim nao repetir perguntas
         questao = random.randint(0, 5)
     lista.append(questao)
     return(questao)
@@ -50,11 +52,11 @@ def exibir_questao(quest, i):
     # PRECISA FAZER SISTEMA DE ALEATORIEDADE 🤫
     #
 
-    os.system("cls")
-    print("Questão de número", i)
+    os.system("cls") #Limpa a tela
+    print("Questão de número", i) 
     print(quest[0])
     print("=============")
-    print("A -", quest[1])
+    print("A -", quest[1]) 
     print("B -", quest[2])
     print("C -", quest[3])
     print("D -", quest[4])
@@ -119,13 +121,13 @@ def perguntas(nuquest):
     ]
     return(perguntas[nuquest])
 
-while True:
+while True: #Loop do programa
     mostrar_menu()
     resposta = int(input("Sua ação:"))
-    if resposta == 2:
+    if resposta == 1:
+        jogo()
+    elif resposta == 2:
         mostrar_regras()
     elif resposta == 3:
         sair()
-    elif resposta == 1:
-        jogo()
 
