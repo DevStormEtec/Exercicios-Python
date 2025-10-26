@@ -60,7 +60,7 @@ def exibir_questao(quest, i):
     correta = quest[1] #Guarda a resposta correta
 
     #OBS: criamos uma lista apenas com as respostas para embaralhar
-    resposta = quest[1:6] #Pega as respostas
+    resposta = quest[1:6] #Pega as respostas, OBS: o índice 6 não é incluído
     random.shuffle(resposta) #Embaralha as respostas
 
     ##exibir questão
@@ -75,6 +75,7 @@ def exibir_questao(quest, i):
     print("E- ", resposta[4])
 
     indice_correto = resposta.index(correta) #Encontra o índice da resposta correta na lista embaralhada
+    #O .index() retorna o índice da primeira ocorrência do valor especificado
     letras = ['a', 'b', 'c', 'd', 'e'] #Lista de letras correspondentes às opções
     letra_correta = letras[indice_correto] #Obtém a letra correspondente
     return(letra_correta)
