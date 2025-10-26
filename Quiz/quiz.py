@@ -30,13 +30,13 @@ def jogo(): #Quiz
             pontos = pontos + 0.5 #Sistema para adicionar pontos ao usuario
         else:
             print("Resposta incorreta, a resposta correta era - ", correta.upper()) #upper() deixa maiuscula
-        input("Pressione Enter para continuar")
+        input("Pressione Enter para continuar") #Pausa para o usuário ver se acertou ou errou, depois deve apertar enter para continuar
     os.system("cls") #Limpa a tela
     if pontos == 10:
-        print("Parabéns! Você fez a pontuação máxima de 10 pontos!")
+        print("Parabéns! Você fez a pontuação máxima de 10 pontos!") #Acertou todas as questões
     else: 
-        print("Fim de jogo! Você fez", pontos, "pontos.") 
-    input("Pressione Enter para voltar ao menu") 
+        print("Fim de jogo! Você fez", pontos, "pontos.") #Mostra a pontuação final do usuário
+    input("Pressione Enter para voltar ao menu") #Volta ao menu 
 
 def sair():
     os.system("cls") #Limpa a tela
