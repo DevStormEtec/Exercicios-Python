@@ -35,8 +35,8 @@ def jogo(): #Quiz
     if pontos == 10:
         print("Parabéns! Você fez a pontuação máxima de 10 pontos!")
     else: 
-        print("Fim de jogo! Você fez", pontos, "pontos.")
-    input("Pressione Enter para voltar ao menu")
+        print("Fim de jogo! Você fez", pontos, "pontos.") 
+    input("Pressione Enter para voltar ao menu") 
 
 def sair():
     os.system("cls") #Limpa a tela
@@ -48,9 +48,10 @@ def sair():
 
 lista=[] #Lista para armazenar os números já usados
 def sortear_questoes():
-    questao = random.randint(0, 19) #Gera um número aleatório para a pergunta
-    while questao in lista: #Enquanto a questão estiver na lista, gera outro número, para assim nao repetir perguntas
-        questao = random.randint(0, 19)
+    # Ajustado para o novo total de 60 perguntas (índices 0 a 59)
+    questao = random.randint(0, 59)
+    while questao in lista:
+        questao = random.randint(0, 59)
     lista.append(questao)
     return(questao)
 
@@ -84,7 +85,7 @@ def exibir_questao(quest, i):
 def perguntas(nuquest):
     #perguntas[0] = pergunta
     #perguntas[1] = resposta correta
-    #perguntas[2,3,4] = respostas erradas
+    #perguntas[2,3,4,5] = respostas erradas
     perguntas = [
         [
             "Qual componente é usado para limitar a corrente em um circuito?",
@@ -245,6 +246,294 @@ def perguntas(nuquest):
             "A1",
             "A2",
             "A3"
+        ],
+        [
+            "O que faz um transistor em um circuito?",
+            "Amplificar ou chavear sinais",
+            "Armazenar energia",
+            "Medir corrente",
+            "Emitir luz",
+            "Converter sinais digitais"
+        ],
+        [
+            "Qual é a função de um diodo em um circuito?",
+            "Permitir fluxo de corrente em uma só direção",
+            "Aumentar a corrente",
+            "Armazenar energia elétrica",
+            "Reduzir a tensão em metade",
+            "Medir a temperatura"
+        ],
+        [
+            "O que é um pull-up resistor?",
+            "Resistor que garante nível alto quando o botão está aberto",
+            "Resistor que diminui ruído",
+            "Circuito integrado para USB",
+            "Componente que emite luz",
+            "Sensor de temperatura"
+        ],
+        [
+            "Qual sensor é comumente usado para medir luminosidade?",
+            "LDR (fotoresistor)",
+            "DHT11",
+            "HC-SR04",
+            "PIR",
+            "MPU6050"
+        ],
+        [
+            "O que significa PWM no contexto do Arduino?",
+            "Pulse Width Modulation (modulação por largura de pulso)",
+            "Power With Microcontroller",
+            "Programming With Memory",
+            "Phase Wave Modulation",
+            "Porta de leitura analógica"
+        ],
+        [
+            "Qual biblioteca Arduino é usada para controlar servomotores?",
+            "Servo.h",
+            "Wire.h",
+            "SPI.h",
+            "LiquidCrystal.h",
+            "EEPROM.h"
+        ],
+        [
+            "Como se lê um valor analógico no Arduino?",
+            "analogRead(pin)",
+            "digitalRead(pin)",
+            "analogWrite(pin)",
+            "digitalWrite(pin)",
+            "readAnalog(pin)"
+        ],
+        [
+            "Qual componente é usado para armazenar um estado sem energia?",
+            "EEPROM",
+            "RAM",
+            "CPU",
+            "LED",
+            "Resistor"
+        ],
+        [
+            "Para que serve um capacitor em circuitos digitais?",
+            "Filtrar ruídos e estabilizar tensões",
+            "Aumentar a corrente de saída",
+            "Converter corrente em tensão",
+            "Ler sinais digitais",
+            "Gerar pulso PWM"
+        ],
+        [
+            "Qual sensor mede aceleração e giros (6 eixos)?",
+            "MPU6050",
+            "HC-SR04",
+            "DHT11",
+            "LDR",
+            "PIR"
+        ],
+        [
+            "Qual módulo é usado para conectar o Arduino à rede Wi-Fi?",
+            "ESP8266/ESP32",
+            "HC-SR04",
+            "BMP280",
+            "DHT22",
+            "NRF24L01"
+        ],
+        [
+            "O que faz um conversor ADC?",
+            "Converte sinais analógicos em digitais",
+            "Converte sinais digitais em analógicos",
+            "Amplifica sinais",
+            "Armazena dados",
+            "Gera sinais PWM"
+        ],
+        [
+            "Qual é a cor do fio geralmente usado como terra (GND)?",
+            "Preto",
+            "Vermelho",
+            "Amarelo",
+            "Branco",
+            "Verde"
+        ],
+        [
+            "Qual protocolo é usado para comunicação entre sensores e microcontroladores com linhas SDA/SCL?",
+            "I2C",
+            "SPI",
+            "UART",
+            "1-Wire",
+            "CAN"
+        ],
+        [
+            "O que é debounce em botões?",
+            "Ignorar os múltiplos contatos elétricos do botão ao pressionar",
+            "Aumentar a sensibilidade do botão",
+            "Diminuir a corrente do botão",
+            "Medir o tempo de pressão",
+            "Converter analógico para digital"
+        ],
+        [
+            "Qual sensor é ideal para medir pressão atmosférica?",
+            "BMP280",
+            "DHT11",
+            "HC-SR04",
+            "PIR",
+            "LDR"
+        ],
+        [
+            "Qual componente permite alterar resistência com um eixo giratório?",
+            "Potenciômetro",
+            "Capacitor",
+            "Indutor",
+            "Transistor",
+            "Diodo"
+        ],
+        [
+            "O que faz a função digitalWrite()?",
+            "Configura um pino digital como HIGH ou LOW",
+            "Lê um valor analógico",
+            "Inicia a comunicação serial",
+            "Define a frequência PWM",
+            "Alimenta o microcontrolador"
+        ],
+        [
+            "Qual protocolo é orientado a alta velocidade e usa MOSI/MISO/SCK?",
+            "SPI",
+            "I2C",
+            "UART",
+            "1-Wire",
+            "CAN"
+        ],
+        [
+            "Qual é a unidade de capacitância?",
+            "Farad (F)",
+            "Ohm (Ω)",
+            "Henry (H)",
+            "Volt (V)",
+            "Ampere (A)"
+        ],
+        [
+            "O que é um relé em eletrônica?",
+            "Um interruptor controlado eletricamente",
+            "Um tipo de capacitor",
+            "Um sensor de distância",
+            "Um regulador de tensão",
+            "Um conversor ADC"
+        ],
+        [
+            "Qual biblioteca facilita o uso de displays LCD 16x2 no Arduino?",
+            "LiquidCrystal",
+            "Servo",
+            "SPI",
+            "Ethernet",
+            "Wire"
+        ],
+        [
+            "Qual é a função de um regulador de tensão linear (ex: 7805)?",
+            "Fornecer saída de tensão fixa estável",
+            "Medir tensão de entrada",
+            "Armazenar energia",
+            "Multiplicar a tensão",
+            "Converter AC em DC"
+        ],
+        [
+            "O que faz o comando millis() no Arduino?",
+            "Retorna o tempo em milissegundos desde o início do programa",
+            "Pausa o programa por milissegundos",
+            "Reinicia o Arduino",
+            "Retorna o tempo em segundos",
+            "Zera o contador de tempo"
+        ],
+        [
+            "Qual sensor é adequado para detectar presença humana por movimento?",
+            "PIR",
+            "DHT11",
+            "LDR",
+            "HC-SR04",
+            "BMP280"
+        ],
+        [
+            "O que indica um LED acendendo em um circuito?",
+            "Passagem de corrente e queda de tensão no LED",
+            "Aumento de resistência",
+            "Erro no circuito",
+            "Baixa voltagem apenas",
+            "Alta temperatura"
+        ],
+        [
+            "Qual é a função do comando pinMode(pin, INPUT_PULLUP)?",
+            "Ativar resistor pull-up interno",
+            "Configurar pino como saída",
+            "Ler valor analógico",
+            "Gerar PWM no pino",
+            "Desligar o pino"
+        ],
+        [
+            "Qual componente é comumente usado para controlar cargas AC (como lâmpadas) em eletrônica de potência?",
+            "Triac",
+            "Transistor bipolar",
+            "LED",
+            "Relé reed",
+            "Capacitor eletrolítico"
+        ],
+        [
+            "Qual sensor é usado para medir a umidade do solo em projetos de irrigação?",
+            "Sensor de umidade resistivo",
+            "DHT11",
+            "HC-SR04",
+            "BMP280",
+            "LDR"
+        ],
+        [
+            "Qual componente converte tensão alternada (AC) em tensão contínua (DC)?",
+            "Ponte retificadora (diodos)",
+            "Transformador",
+            "Capacitor eletrolítico",
+            "Indutor",
+            "Regulador linear"
+        ],
+        [
+            "Qual comando envia dados pela Serial sem pular linha?",
+            "Serial.print()",
+            "Serial.println()",
+            "Serial.read()",
+            "Serial.begin()",
+            "Serial.available()"
+        ],
+        [
+            "Qual pino do Arduino UNO fornece 5V regulados?",
+            "Pino 5V",
+            "Pino 3.3V",
+            "Pino GND",
+            "Pino Vin",
+            "Pino A0"
+        ],
+        [
+            "Qual sensor é mais preciso que o DHT11 para temperatura e umidade?",
+            "DHT22",
+            "BMP280",
+            "HC-SR04",
+            "LDR",
+            "MPU6050"
+        ],
+        [
+            "Qual biblioteca facilita a comunicação I2C no Arduino?",
+            "Wire.h",
+            "SPI.h",
+            "Servo.h",
+            "Ethernet.h",
+            "LiquidCrystal.h"
+        ],
+        [
+            "Para que serve o botão RESET em uma placa Arduino?",
+            "Reiniciar o microcontrolador",
+            "Entrar no modo de bootloader permanentemente",
+            "Limpar a EEPROM",
+            "Ativar o modo de programação USB",
+            "Forçar saída HIGH em todos os pinos"
+        ],
+        [
+            "O que é um osciloscópio?",
+            "Instrumento para visualizar formas de onda e sinais elétricos",
+            "Fonte de alimentação regulada",
+            "Sensor de movimento",
+            "Conversor ADC",
+            "Gerador de sinal apenas"
         ]
     ]
     return(perguntas[nuquest])
@@ -258,4 +547,3 @@ while True: #Loop do programa
         mostrar_regras()
     elif resposta == 3:
         sair()
-
