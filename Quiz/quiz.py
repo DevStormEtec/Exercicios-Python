@@ -117,6 +117,118 @@ def perguntas(nuquest):
             "Serial.read()",
             "Serial.write()",
             "Placa de prototipagem (breadboard)"
+        ],
+        [
+            "Qual função é utilizada para configurar um pino como entrada ou saída no Arduino?",
+            "pinMode()",
+            "digitalRead()",
+            "digitalWrite()",
+            "analogWrite()",
+            "analogRead()"
+        ],
+        [
+            "Qual componente é utilizado para emitir luz em projetos Arduino?",
+            "LED",
+            "Resistor",
+            "Capacitor",
+            "Transistor",
+            "Potenciômetro"
+        ],
+        [
+            "Qual a função do comando delay() no Arduino?",
+            "Pausar o programa por milissegundos",
+            "Aumentar a velocidade do programa",
+            "Encerrar o programa",
+            "Reiniciar o Arduino",
+            "Medir o tempo decorrido"
+        ],
+        [
+            "Qual é a voltagem típica de operação do Arduino UNO?",
+            "5V",
+            "3.3V",
+            "12V",
+            "9V",
+            "1.5V"
+        ],
+        [
+            "Qual sensor é usado para medir temperatura em projetos Arduino?",
+            "DHT11",
+            "HC-SR04",
+            "LDR",
+            "PIR",
+            "MPU6050"
+        ],
+        [
+            "Qual função é executada continuamente em um programa Arduino?",
+            "loop()",
+            "setup()",
+            "main()",
+            "start()",
+            "run()"
+        ],
+        [
+            "Qual sensor é utilizado para medir distância em projetos Arduino?",
+            "HC-SR04",
+            "DHT11",
+            "LDR",
+            "PIR",
+            "BMP280"
+        ],
+        [
+            "Como se chama o processo de enviar um programa para o Arduino?",
+            "Upload",
+            "Download",
+            "Install",
+            "Copy",
+            "Transfer"
+        ],
+        [
+            "Qual componente é usado para controlar a velocidade de motores DC?",
+            "Transistor",
+            "Resistor",
+            "Capacitor",
+            "LED",
+            "Cristal"
+        ],
+        [
+            "Qual é a função do comando Serial.println()?",
+            "Imprimir texto com quebra de linha",
+            "Ler dados da porta serial",
+            "Configurar velocidade serial",
+            "Fechar a porta serial",
+            "Limpar o monitor serial"
+        ],
+        [
+            "Qual sensor é usado para detectar movimento em projetos Arduino?",
+            "PIR",
+            "LDR",
+            "DHT11",
+            "BMP280",
+            "HC-SR04"
+        ],
+        [
+            "Qual componente é usado para variar a resistência manualmente?",
+            "Potenciômetro",
+            "Resistor",
+            "Capacitor",
+            "LED",
+            "Transistor"
+        ],
+        [
+            "Qual função é executada apenas uma vez quando o Arduino inicia?",
+            "setup()",
+            "loop()",
+            "main()",
+            "start()",
+            "begin()"
+        ],
+        [
+            "Qual porta analógica do Arduino UNO tem maior resolução?",
+            "Todas têm 10 bits",
+            "A0",
+            "A1",
+            "A2",
+            "A3"
         ]
     ]
     return(perguntas[nuquest])
