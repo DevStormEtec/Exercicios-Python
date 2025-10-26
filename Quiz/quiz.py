@@ -19,7 +19,8 @@ def mostrar_regras(): #Regras
 
 def jogo(): #Quiz
     pontos = 0 #Variável para inicializar os pontos do usuário, assim toda vez que iniciar o jogo os pontos começam em 0
-    for i in range(1, 20):
+    lista.clear() #Limpa a lista de perguntas já feitas
+    for i in range(1, 21): #Loop para 20 perguntas
         nuquest = sortear_questoes()
         quest = perguntas(nuquest)
         correta = exibir_questao(quest, i)
@@ -30,39 +31,53 @@ def jogo(): #Quiz
         else:
             print("Resposta incorreta, a resposta correta era - ", correta.upper()) #upper() deixa maiuscula
         input("Pressione Enter para continuar")
+    os.system("cls") #Limpa a tela
+    if pontos == 10:
+        print("Parabéns! Você fez a pontuação máxima de 10 pontos!")
+    else: 
+        print("Fim de jogo! Você fez", pontos, "pontos.")
+    input("Pressione Enter para voltar ao menu")
 
 def sair():
     os.system("cls") #Limpa a tela
     print("Obrigado por jogar!")
     print("Volte sempre!")
     exit() #Fecha o programa
+    
 
 
 lista=[] #Lista para armazenar os números já usados
 def sortear_questoes():
-    questao = random.randint(0, 5) #Gera um número aleatório para a pergunta
+    questao = random.randint(0, 19) #Gera um número aleatório para a pergunta
     while questao in lista: #Enquanto a questão estiver na lista, gera outro número, para assim nao repetir perguntas
-        questao = random.randint(0, 5)
+        questao = random.randint(0, 19)
     lista.append(questao)
     return(questao)
 
 def exibir_questao(quest, i):
-    correta = 'a' #Por enquanto ⚠️⚠️⚠️⚠️
-    #
-    # PRECISA FAZER SISTEMA DE ALEATORIEDADE 🤫
-    #
+    #sistema de aleatoriedade
+    pergunta = quest[0] #Diz a pergunta
+    correta = quest[1] #Guarda a resposta correta
 
+    #OBS: criamos uma lista apenas com as respostas para embaralhar
+    resposta = quest[1:6] #Pega as respostas
+    random.shuffle(resposta) #Embaralha as respostas
+
+    ##exibir questão
     os.system("cls") #Limpa a tela
     print("Questão de número", i) 
-    print(quest[0])
+    print(pergunta) 
     print("=============")
-    print("A -", quest[1]) 
-    print("B -", quest[2])
-    print("C -", quest[3])
-    print("D -", quest[4])
-    print("E- ", quest[5])
-    print(lista, "teste")
-    return(correta)
+    print("A -", resposta[0]) 
+    print("B -", resposta[1])
+    print("C -", resposta[2])
+    print("D -", resposta[3])
+    print("E- ", resposta[4])
+
+    indice_correto = resposta.index(correta) #Encontra o índice da resposta correta na lista embaralhada
+    letras = ['a', 'b', 'c', 'd', 'e'] #Lista de letras correspondentes às opções
+    letra_correta = letras[indice_correto] #Obtém a letra correspondente
+    return(letra_correta)
 
     
 def perguntas(nuquest):
