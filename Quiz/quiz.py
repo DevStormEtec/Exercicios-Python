@@ -48,10 +48,10 @@ def sair():
 
 lista=[] #Lista para armazenar os números já usados
 def sortear_questoes():
-    # Ajustado para o novo total de 60 perguntas (índices 0 a 59)
-    questao = random.randint(0, 59)
+    # Ajustado para o novo total de 55 perguntas (índices 0 a 55)
+    questao = random.randint(0, 54)
     while questao in lista:
-        questao = random.randint(0, 59)
+        questao = random.randint(0, 54)
     lista.append(questao)
     return(questao)
 
